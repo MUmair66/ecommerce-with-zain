@@ -1,0 +1,305 @@
+/* ===========================
+   E-Commerce with Zain — Global CSS
+   =========================== */
+
+:root {
+  --bg-white: #FFFFFF;
+  --navy: #111111;
+  --navy-dark: #000000;
+  --golden: #FFC107;
+  --golden-dark: #E0A800;
+  --sky: #333333;
+  --text-dark: #222222;
+  --card-bg: #FFFFFF;
+  --section-alt: #F8F9FA;
+  --border: #e2e8f0;
+  --shadow: 0 4px 24px rgba(0,0,0,0.06);
+  --shadow-gold: 0 0 24px rgba(255,193,7,0.25);
+  --radius: 14px;
+  --radius-sm: 8px;
+  --transition: all 0.3s ease;
+  --font-main: 'Outfit', 'Inter', sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--text-dark);
+  background: var(--bg-white);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+ul { list-style: none; }
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-main);
+  border: none;
+  outline: none;
+}
+
+/* ===== UTILITY CLASSES ===== */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 90px 0;
+}
+
+.section-alt {
+  background: var(--section-alt);
+}
+
+.section-navy {
+  background: var(--navy);
+  color: #fff;
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+.section-title.light {
+  color: #fff;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: #556080;
+  max-width: 600px;
+  margin: 0 auto 50px;
+}
+
+.section-subtitle.light {
+  color: rgba(255,255,255,0.80);
+}
+
+.text-center { text-align: center; }
+
+.badge {
+  display: inline-block;
+  background: rgba(255,193,7,0.15);
+  color: var(--golden-dark);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 5px 16px;
+  border-radius: 50px;
+  margin-bottom: 16px;
+}
+
+.badge.light {
+  background: rgba(255,255,255,0.15);
+  color: var(--golden);
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 30px;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  transition: var(--transition);
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.btn-primary {
+  background: var(--golden);
+  color: var(--navy);
+  border-color: var(--golden);
+}
+
+.btn-primary:hover {
+  background: var(--golden-dark);
+  border-color: var(--golden-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-gold);
+}
+
+.btn-outline {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255,255,255,0.6);
+}
+
+.btn-outline:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: #fff;
+  transform: translateY(-2px);
+}
+
+.btn-outline-navy {
+  background: transparent;
+  color: var(--navy);
+  border-color: var(--navy);
+}
+
+.btn-outline-navy:hover {
+  background: var(--navy);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.btn-navy {
+  background: var(--navy);
+  color: #fff;
+  border-color: var(--navy);
+}
+
+.btn-navy:hover {
+  background: var(--navy-dark);
+  border-color: var(--navy-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+/* ===== LOGO ===== */
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.logo-img {
+  max-width: 120px;
+  height: auto;
+  transition: var(--transition);
+}
+
+.logo-img.light-logo {
+  filter: brightness(0) invert(1);
+}
+
+/* ===== CARDS ===== */
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  border: 1px solid var(--border);
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-gold);
+  border-color: var(--golden);
+}
+
+/* ===== SCROLL BAR ===== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: var(--navy); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--sky); }
+
+/* ===== GRID HELPERS ===== */
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+
+@media (max-width: 1024px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .section { padding: 60px 0; }
+  .container { padding: 0 16px; }
+}
+
+/* ===== WHATSAPP FLOAT ===== */
+.whatsapp-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9999;
+  background: #25D366;
+  color: #fff;
+  border-radius: 50%;
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+  animation: waPulse 2.2s infinite;
+  transition: var(--transition);
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.12);
+}
+
+@keyframes waPulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.45); }
+  50% { box-shadow: 0 4px 40px rgba(37,211,102,0.75), 0 0 0 12px rgba(37,211,102,0.1); }
+}
+
+/* ===== LOADING SCREEN ===== */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  background: var(--navy);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
+/* ===== PAGE TRANSITIONS ===== */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* ===== DIVIDER ===== */
+.divider {
+  height: 3px;
+  width: 60px;
+  background: var(--golden);
+  border-radius: 2px;
+  margin: 16px auto 0;
+}
+
+.divider.left { margin-left: 0; }
+
+/* ===== STAR RATING ===== */
+.stars { color: var(--golden); font-size: 1rem; letter-spacing: 2px; }
