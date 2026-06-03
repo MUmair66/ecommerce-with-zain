@@ -12,19 +12,27 @@ const quickLinks = [
   { label: 'Contact Us', to: '/contact' },
 ]
 
+const serviceLinks = [
+  { label: 'LTD & LLC Formation', to: '/services/ltd-llc' },
+  { label: 'Account Creation', to: '/services/account-creation' },
+  { label: 'Account Management', to: '/services/account-management' },
+  { label: 'Account Reinstatement', to: '/services/reinstatement' },
+  { label: 'Website Services', to: '/services/website-services' },
+  { label: 'Digital Marketing', to: '/services/digital-marketing' },
+]
+
 export default function Footer() {
   return (
     <footer className="footer">
       <div className="container footer-grid">
-        {/* Brand */}
         <div className="footer-col brand-col">
           <Logo light />
           <p className="footer-desc">
-            Professional e-commerce solutions to help you grow on Amazon, eBay, Walmart and beyond. 
-            From account creation to full management — we've got you covered.
+            Professional e-commerce solutions to help you grow on Amazon, eBay, Walmart and beyond.
+            From account creation to full management, we&apos;ve got you covered.
           </p>
           <div className="social-icons">
-            <a href="https://wa.me/923001234567" target="_blank" rel="noreferrer" aria-label="WhatsApp"><FaWhatsapp /></a>
+            <a href="https://wa.me/923054445888" target="_blank" rel="noreferrer" aria-label="WhatsApp"><FaWhatsapp /></a>
             <a href="#" target="_blank" rel="noreferrer" aria-label="Facebook"><FaFacebook /></a>
             <a href="#" target="_blank" rel="noreferrer" aria-label="Instagram"><FaInstagram /></a>
             <a href="#" target="_blank" rel="noreferrer" aria-label="YouTube"><FaYoutube /></a>
@@ -32,7 +40,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Quick Links */}
         <div className="footer-col">
           <h3 className="footer-heading">Quick Links</h3>
           <ul className="footer-links">
@@ -42,20 +49,15 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Services */}
         <div className="footer-col">
           <h3 className="footer-heading">Services</h3>
           <ul className="footer-links">
-            <li><Link to="/services">LTD & LLC Formation</Link></li>
-            <li><Link to="/services">Account Creation</Link></li>
-            <li><Link to="/services">Account Management</Link></li>
-            <li><Link to="/services">Account Reinstatement</Link></li>
-            <li><Link to="/services">Web Development</Link></li>
-            <li><Link to="/services">Digital Marketing</Link></li>
+            {serviceLinks.map(l => (
+              <li key={l.to}><Link to={l.to}>{l.label}</Link></li>
+            ))}
           </ul>
         </div>
 
-        {/* Contact */}
         <div className="footer-col">
           <h3 className="footer-heading">Contact Us</h3>
           <ul className="footer-contact">
@@ -65,11 +67,11 @@ export default function Footer() {
             </li>
             <li>
               <FaWhatsapp className="fc-icon" />
-              <a href="https://wa.me/923001234567" target="_blank" rel="noreferrer">+92 300 1234567</a>
+              <a href="https://wa.me/923054445888" target="_blank" rel="noreferrer">+92 305 4445888</a>
             </li>
             <li>
               <FiPhone className="fc-icon" />
-              <span>Pakistan 🇵🇰</span>
+              <a href="tel:+923054445888">+92 305 4445888</a>
             </li>
           </ul>
         </div>
@@ -78,7 +80,7 @@ export default function Footer() {
       <div className="footer-bottom">
         <div className="container footer-bottom-inner">
           <p>© 2025 E-Commerce with Zain. All Rights Reserved.</p>
-          <p>Designed with ❤️ for E-Commerce Excellence</p>
+          <p>Designed for E-Commerce Excellence</p>
         </div>
       </div>
     </footer>

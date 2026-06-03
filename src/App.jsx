@@ -70,7 +70,7 @@ export default function App() {
       <Router>
         <ScrollToTop />
         <Navbar />
-        <main style={{ paddingTop: '72px', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+        <main style={{ paddingTop: '84px', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
           <AnimatedRoutes />
         </main>
         <Footer />

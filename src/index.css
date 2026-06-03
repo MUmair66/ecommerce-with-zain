@@ -197,8 +197,10 @@ button {
 }
 
 .logo-img {
-  max-width: 120px;
-  height: auto;
+  max-height: 85px;
+  width: auto;
+  max-width: 320px;
+  object-fit: contain;
   transition: var(--transition);
 }
 

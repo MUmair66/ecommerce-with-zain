@@ -90,13 +90,13 @@ export default function Contact() {
               </p>
 
               <div className="info-cards">
-                <a href="https://wa.me/923001234567" target="_blank" rel="noreferrer" className="info-card" id="contact-whatsapp">
+                <a href="https://wa.me/923054445888" target="_blank" rel="noreferrer" className="info-card" id="contact-whatsapp">
                   <div className="info-card-icon" style={{ background: 'rgba(37,211,102,0.12)', color: '#25D366' }}>
                     <FaWhatsapp />
                   </div>
                   <div>
                     <div className="info-card-label">WhatsApp</div>
-                    <div className="info-card-value">+92 300 1234567</div>
+                    <div className="info-card-value">+92 305 4445888</div>
                   </div>
                 </a>
 
@@ -116,13 +116,15 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="info-card-label">Location</div>
-                    <div className="info-card-value">Pakistan 🇵🇰</div>
+                    <div className="info-card-value" style={{ fontSize: '0.88rem', lineHeight: '1.4' }}>
+                      Office 28, 4th Floor, AL Latif Center, Lahore, Pakistan 🇵🇰
+                    </div>
                   </div>
                 </div>
               </div>
 
               <a
-                href="https://wa.me/923001234567?text=Hello!%20I%20want%20a%20free%20consultation."
+                href="https://wa.me/923054445888?text=Hello!%20I%20want%20a%20free%20consultation."
                 target="_blank"
                 rel="noreferrer"
                 className="btn wa-direct-btn"
@@ -235,6 +237,26 @@ export default function Contact() {
                   <FiSend /> Send Message
                 </button>
               </form>
+            </div>
+          </FadeUp>
+        </div>
+      </section>
+
+      {/* MAP SECTION */}
+      <section className="section section-alt" style={{ padding: '0 0 90px' }} id="map-section">
+        <div className="container">
+          <FadeUp>
+            <div style={{ borderRadius: 'var(--radius)', overflow: 'hidden', border: '1px solid var(--border)', boxShadow: 'var(--shadow)', height: '450px' }}>
+              <iframe
+                title="Office Location Map"
+                src="https://maps.google.com/maps?q=Al%20Latif%20Center%20Lahore&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
           </FadeUp>
         </div>

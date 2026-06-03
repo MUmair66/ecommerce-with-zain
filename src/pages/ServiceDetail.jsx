@@ -1,22 +1,60 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useParams, Navigate, Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { FiArrowRight, FiCheck } from 'react-icons/fi'
+import { FiArrowRight, FiCheckCircle, FiChevronDown, FiGlobe, FiShield, FiClock, FiTrendingUp, FiTarget } from 'react-icons/fi'
 import { FaWhatsapp } from 'react-icons/fa'
 import { servicesData } from '../data/servicesData'
 import './Services.css'
 
+const iconMap = {
+  globe: <FiGlobe />,
+  shield: <FiShield />,
+  clock: <FiClock />,
+  trending: <FiTrendingUp />,
+  target: <FiTarget />
+}
+
 function FadeUp({ children, delay = 0, className = '' }) {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 })
   return (
-    <motion.div ref={ref} className={className}
+    <motion.div
+      ref={ref}
+      className={className}
       initial={{ opacity: 0, y: 36 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.55, delay, ease: 'easeOut' }}>
+      transition={{ duration: 0.55, delay, ease: 'easeOut' }}
+    >
       {children}
     </motion.div>
+  )
+}
+
+function Accordion({ q, a }) {
+  const [isOpen, setIsOpen] = useState(false)
+  return (
+    <div className={`faq-item ${isOpen ? 'open' : ''}`}>
+      <button className="faq-q" onClick={() => setIsOpen(!isOpen)}>
+        {q}
+        <FiChevronDown className={`faq-arrow ${isOpen ? 'rotated' : ''}`} />
+      </button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="faq-a-wrapper"
+          >
+            <div className="faq-a">
+              <p>{a}</p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   )
 }
 
@@ -24,9 +62,7 @@ export default function ServiceDetail() {
   const { id } = useParams()
   const service = servicesData.find(s => s.id === id)
 
-  if (!service) {
-    return <Navigate to="/services" replace />
-  }
+  if (!service) return <Navigate to="/services" replace />
 
   return (
     <>
@@ -35,14 +71,24 @@ export default function ServiceDetail() {
         <meta name="description" content={service.desc} />
       </Helmet>
 
-      {/* HERO */}
-      <section className="page-hero section-navy">
-        <div className="container text-center">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <span className="badge light" style={{ fontSize: '2rem', padding: '10px 20px', marginBottom: 20 }}>{service.icon}</span>
-            <h1 className="page-hero-title">{service.title}</h1>
-            <p className="page-hero-sub">{service.subtitle}</p>
-          </motion.div>
+      {/* Hero Section */}
+      <section className="page-hero section-navy service-detail-hero">
+        <div className="container">
+          <div className="sdh-content">
+            <FadeUp>
+              <span className="badge light sdh-badge">{service.icon} — Premium Service</span>
+              <h1 className="page-hero-title">{service.title}</h1>
+              <p className="page-hero-sub">{service.heroDesc || service.desc}</p>
+              <div className="sdh-actions">
+                <Link to="/contact" className="btn btn-primary">
+                  Get Started <FiArrowRight />
+                </Link>
+                <a href="https://wa.me/923054445888" target="_blank" rel="noreferrer" className="btn btn-outline">
+                  <FaWhatsapp /> Ask on WhatsApp
+                </a>
+              </div>
+            </FadeUp>
+          </div>
         </div>
         <div className="hero-wave" style={{ position: 'absolute', bottom: -2, left: 0, right: 0 }}>
           <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -51,72 +97,121 @@ export default function ServiceDetail() {
         </div>
       </section>
 
-      {/* CONTENT */}
-      <section className="section" style={{ paddingBottom: 40 }}>
-        <div className="container" style={{ maxWidth: 900 }}>
-          <FadeUp>
-            <div style={{ background: 'var(--card-bg)', border: '1px solid var(--border)', borderRadius: 'var(--radius)', padding: '50px' }}>
-              <h2 style={{ fontSize: '2rem', fontWeight: 900, color: 'var(--navy)', marginBottom: 20 }}>Overview</h2>
-              <p style={{ fontSize: '1.1rem', color: '#556080', lineHeight: 1.8, marginBottom: 40 }}>{service.desc}</p>
-
-              {service.items && (
-                <>
-                  <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--navy)', marginBottom: 16 }}>What's Included:</h3>
-                  <ul style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 40 }}>
-                    {service.items.map(item => (
-                      <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: 12, fontSize: '1.05rem', color: '#222' }}>
-                        <FiCheck style={{ color: 'var(--golden)', fontSize: '1.4rem', flexShrink: 0, marginTop: 2 }} />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              )}
-
-              {service.subsections && service.subsections.map(sub => (
-                <div key={sub.label} style={{ marginBottom: 30 }}>
-                  <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--navy)', marginBottom: 16, borderBottom: '2px solid var(--golden)', display: 'inline-block', paddingBottom: 6 }}>{sub.label}</h3>
-                  <ul style={{ display: 'flex', flexDirection: 'column', gap: 12, marginTop: 10 }}>
-                    {sub.items.map(item => (
-                      <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: 12, fontSize: '1.05rem', color: '#222' }}>
-                        <FiCheck style={{ color: 'var(--golden)', fontSize: '1.4rem', flexShrink: 0, marginTop: 2 }} />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+      {/* Features Section */}
+      {service.features && (
+        <section className="section sdp-features">
+          <div className="container">
+            <div className="sdp-grid-3">
+              {service.features.map((feat, idx) => (
+                <FadeUp key={idx} delay={idx * 0.1} className="sdp-feat-card">
+                  <div className="sdp-feat-icon" style={{ color: service.color }}>
+                    {iconMap[feat.icon] || <FiCheckCircle />}
+                  </div>
+                  <h3>{feat.title}</h3>
+                  <p>{feat.desc}</p>
+                </FadeUp>
               ))}
-
-              <div style={{ marginTop: 50, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-                <Link to="/contact" className="btn btn-primary" style={{ padding: '16px 36px', fontSize: '1.05rem' }}>
-                  Get Started <FiArrowRight />
-                </Link>
-                <a href="https://wa.me/923001234567" target="_blank" rel="noreferrer" className="btn btn-outline-navy" style={{ padding: '16px 36px', fontSize: '1.05rem' }}>
-                  <FaWhatsapp style={{ fontSize: '1.2rem' }} /> Ask on WhatsApp
-                </a>
-              </div>
             </div>
-          </FadeUp>
-        </div>
-      </section>
+          </div>
+        </section>
+      )}
 
-      {/* MORE SERVICES */}
-      <section className="section section-alt" style={{ paddingTop: 60 }}>
-        <div className="container text-center">
-          <h3 style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--navy)', marginBottom: 30 }}>Explore Other Services</h3>
-          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 16 }}>
-            {servicesData.filter(s => s.id !== id).map(s => (
-              <Link key={s.id} to={`/services/${s.id}`} style={{ background: '#fff', border: '1px solid var(--border)', padding: '16px 24px', borderRadius: '50px', fontWeight: 700, color: 'var(--navy)', transition: 'all 0.3s' }} className="other-svc-link">
-                {s.icon} {s.title}
-              </Link>
-            ))}
+      {/* Overview & Image Section */}
+      <section className="section section-alt sdp-overview">
+        <div className="container">
+          <div className="sdp-overview-grid">
+            <FadeUp className="sdp-overview-img-wrap">
+              <img src={service.image} alt={service.title} />
+            </FadeUp>
+            <FadeUp delay={0.2} className="sdp-overview-text">
+              <h2>Why You Need This</h2>
+              <div className="divider left"></div>
+              <p className="sdp-desc-large">{service.desc}</p>
+              
+              <h3 className="sdp-included-title">What's Included</h3>
+              {service.groups ? (
+                <div className="sdp-groups">
+                  {service.groups.map(group => (
+                    <div key={group.label} className="sdp-group">
+                      <h4>{group.label}</h4>
+                      <ul>
+                        {group.items.map(item => (
+                          <li key={item}><FiCheckCircle style={{ color: service.color }} /> {item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <ul className="sdp-list-grid">
+                  {service.subservices.map(item => (
+                    <li key={item}><FiCheckCircle style={{ color: service.color }} /> {item}</li>
+                  ))}
+                </ul>
+              )}
+            </FadeUp>
           </div>
         </div>
       </section>
 
-      <style>{`
-        .other-svc-link:hover { border-color: var(--golden); box-shadow: 0 4px 15px rgba(255,193,7,0.2); transform: translateY(-2px); }
-      `}</style>
+      {/* Process Section */}
+      {service.process && (
+        <section className="section sdp-process">
+          <div className="container">
+            <div className="text-center">
+              <h2>How It Works</h2>
+              <div className="divider"></div>
+              <p className="section-subtitle">Our streamlined process to get you results faster.</p>
+            </div>
+            <div className="sdp-process-timeline">
+              {service.process.map((proc, idx) => (
+                <FadeUp key={idx} delay={idx * 0.15} className="sdp-step">
+                  <div className="sdp-step-num" style={{ backgroundColor: `${service.color}15`, color: service.color }}>
+                    {proc.step}
+                  </div>
+                  <div className="sdp-step-content">
+                    <h3>{proc.title}</h3>
+                    <p>{proc.desc}</p>
+                  </div>
+                </FadeUp>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* FAQ Section */}
+      {service.faq && (
+        <section className="section section-alt sdp-faq">
+          <div className="container">
+            <div className="text-center">
+              <h2>Frequently Asked Questions</h2>
+              <div className="divider"></div>
+            </div>
+            <div className="faq-list">
+              {service.faq.map((f, idx) => (
+                <FadeUp key={idx} delay={idx * 0.1}>
+                  <Accordion q={f.q} a={f.a} />
+                </FadeUp>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Bottom CTA */}
+      <section className="cta-banner">
+        <div className="container text-center">
+          <FadeUp>
+            <h2 className="cta-heading">Ready to scale your business?</h2>
+            <p className="cta-sub">Get in touch with us today to start your journey.</p>
+            <div className="cta-btns">
+              <Link to="/contact" className="btn btn-primary">Start Now <FiArrowRight /></Link>
+              <a href="https://wa.me/923054445888" className="btn btn-outline wa-btn"><FaWhatsapp /> WhatsApp Us</a>
+            </div>
+          </FadeUp>
+        </div>
+      </section>
     </>
   )
 }

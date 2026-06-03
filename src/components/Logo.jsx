@@ -6,7 +6,7 @@ export default function Logo({ light = false }) {
   return (
     <Link to="/" className="logo-wrap" aria-label="E-Commerce with Zain Home">
       <img 
-        src="/logo.png" 
+        src="/ecomerce%20with%20zain%20without%20background.png" 
         alt="E-Commerce with Zain" 
         className={`logo-img${light ? ' light-logo' : ''}`} 
       />

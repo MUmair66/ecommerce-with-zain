@@ -7,7 +7,7 @@ import { TypeAnimation } from 'react-type-animation'
 import { FiArrowRight, FiCheckCircle, FiClock, FiUsers, FiHeadphones, FiPlus, FiMinus } from 'react-icons/fi'
 import { FaAmazon, FaEbay, FaTiktok, FaWhatsapp } from 'react-icons/fa'
 import { SiWalmart, SiEtsy } from 'react-icons/si'
-import { servicesData } from '../data/servicesData'
+import { getServiceItems, servicesData } from '../data/servicesData'
 import './Home.css'
 
 function FadeUp({ children, delay = 0, className = '' }) {
@@ -206,27 +206,11 @@ export default function Home() {
                   <h4 className="ds-subtitle">{svc.subtitle}</h4>
                   <p className="ds-desc">{svc.desc}</p>
                   
-                  {svc.items && (
-                    <ul className="ds-bullet-list">
-                      {svc.items.map((item, i) => (
-                        <li key={i}><FiCheckCircle className="check-icon" /> {item}</li>
-                      ))}
-                    </ul>
-                  )}
-                  {svc.subsections && (
-                    <div className="ds-subsections">
-                      {svc.subsections.map((sub, i) => (
-                        <div key={i} className="ds-sub">
-                          <h5 className="ds-sub-label">{sub.label}</h5>
-                          <ul className="ds-bullet-list">
-                            {sub.items.map((item, j) => (
-                              <li key={j}><FiCheckCircle className="check-icon" /> {item}</li>
-                            ))}
-                          </ul>
-                        </div>
-                      ))}
-                    </div>
-                  )}
+                  <ul className="ds-bullet-list">
+                    {getServiceItems(svc).slice(0, 6).map((item, i) => (
+                      <li key={i}><FiCheckCircle className="check-icon" /> {item}</li>
+                    ))}
+                  </ul>
                   <div style={{ marginTop: '28px' }}>
                     <Link to={`/services/${svc.id}`} className="btn btn-navy ds-learn-more">
                       Learn More About {svc.title} <FiArrowRight />
@@ -234,9 +218,22 @@ export default function Home() {
                   </div>
                 </FadeUp>
                 <FadeUp delay={0.3} className="ds-visual">
-                  <div className="ds-card-mockup" style={{ borderColor: `${svc.color}44`, background: `linear-gradient(135deg, ${svc.color}08 0%, transparent 100%)` }}>
-                    <div className="ds-mockup-icon" style={{ textShadow: `0 10px 30px ${svc.color}66` }}>{svc.icon}</div>
-                    <div className="ds-mockup-bg"></div>
+                  <div className="ds-image-container" style={{ position: 'relative', overflow: 'hidden', borderRadius: 'var(--radius)' }}>
+                    <img 
+                      src={svc.image} 
+                      alt={svc.title} 
+                      className="ds-service-img" 
+                      style={{ 
+                        width: '100%', 
+                        height: 'auto', 
+                        borderRadius: 'var(--radius)', 
+                        boxShadow: 'var(--shadow)',
+                        border: '1px solid var(--border)',
+                        transition: 'transform 0.5s ease',
+                        display: 'block'
+                      }}
+                    />
+                    <div className="ds-mockup-bg" style={{ position: 'absolute', inset: 0, background: `linear-gradient(135deg, ${svc.color}15 0%, transparent 100%)`, pointerEvents: 'none', mixBlendMode: 'overlay' }}></div>
                   </div>
                 </FadeUp>
               </div>
@@ -345,7 +342,7 @@ export default function Home() {
             <p className="cta-sub">Join 500+ satisfied clients who trust E-Commerce with Zain. Let's build your success story together.</p>
             <div className="cta-btns">
               <Link to="/contact" className="btn btn-primary" id="cta-consult-btn">Get Free Consultation <FiArrowRight /></Link>
-              <a href="https://wa.me/923001234567" target="_blank" rel="noreferrer" className="btn wa-btn" id="cta-whatsapp-btn">
+              <a href="https://wa.me/923054445888" target="_blank" rel="noreferrer" className="btn wa-btn" id="cta-whatsapp-btn">
                 <FaWhatsapp /> Chat on WhatsApp
               </a>
             </div>
