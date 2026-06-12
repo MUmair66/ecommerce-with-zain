@@ -37,12 +37,12 @@ function CounterCard({ end, suffix, label, icon, delay }) {
 }
 
 const counters = [
-  { end: 500, suffix: '+', label: 'Happy Clients',       icon: '😊', delay: 0 },
-  { end: 1000, suffix: '+', label: 'Accounts Created',   icon: '🛒', delay: 0.1 },
+  { end: 750, suffix: '+', label: 'Happy Clients',       icon: '😊', delay: 0 },
+  { end: 1500, suffix: '+', label: 'Accounts Created',   icon: '🛒', delay: 0.1 },
   { end: 6, suffix: '+', label: 'Services Offered',      icon: '⚙️', delay: 0.2 },
   { end: 100, suffix: '%', label: 'Satisfaction Rate',   icon: '✅', delay: 0.3 },
   { end: 5, suffix: '+', label: 'Years Experience',      icon: '🏆', delay: 0.4 },
-  { end: 50, suffix: '+', label: 'eBay Cases Won',       icon: '⚖️', delay: 0.5 },
+  { end: 75, suffix: '+', label: 'eBay Cases Won',       icon: '⚖️', delay: 0.5 },
 ]
 
 const achievementCards = [
@@ -60,7 +60,7 @@ const achievementCards = [
   },
   {
     icon: <FaUsers />,
-    title: 'Trusted by 500+ Clients Worldwide',
+    title: 'Trusted by 750+ Clients Worldwide',
     desc: 'A growing global community of satisfied e-commerce entrepreneurs who rely on us for their business growth and account management needs.',
     color: '#E0A800',
   },
@@ -72,7 +72,7 @@ const timeline = [
   { year: '2021', title: 'Multi-Platform Expansion', desc: 'Added Walmart, TikTok Shop, Etsy and OnBuy services to our portfolio, becoming a true multi-platform agency.' },
   { year: '2022', title: 'Web & Digital Services', desc: 'Launched full web development and digital marketing divisions to offer clients a complete business growth package.' },
   { year: '2023', title: 'LLC & LTD Formation', desc: 'Started offering company formation services for UK and USA, helping clients legally establish their e-commerce businesses.' },
-  { year: '2024–25', title: '500+ Clients & Growing', desc: 'Surpassed 500 happy clients worldwide and 1000+ accounts created — continuing to grow as a leading e-commerce service provider.' },
+  { year: '2024–25', title: '750+ Clients & Growing', desc: 'Surpassed 750 happy clients worldwide and 1500+ accounts created — continuing to grow as a leading e-commerce service provider.' },
 ]
 
 export default function Achievements() {
@@ -80,7 +80,7 @@ export default function Achievements() {
     <>
       <Helmet>
         <title>Our Achievements | E-Commerce with Zain</title>
-        <meta name="description" content="500+ happy clients, 1000+ accounts created, 5+ years experience. See why E-Commerce with Zain is a trusted leader in e-commerce services." />
+        <meta name="description" content="750+ happy clients, 1500+ accounts created, 5+ years experience. See why E-Commerce with Zain is a trusted leader in e-commerce services." />
       </Helmet>
 
       {/* PAGE HERO */}
@@ -175,7 +175,7 @@ export default function Achievements() {
           <FadeUp>
             <span className="badge light">Join Our Success Stories</span>
             <h2 className="cta-heading">Become Our Next Success Story</h2>
-            <p className="cta-sub">500+ clients have already trusted us with their e-commerce journey. It's your turn to grow.</p>
+            <p className="cta-sub">750+ clients have already trusted us with their e-commerce journey. It's your turn to grow.</p>
             <div className="cta-btns">
               <Link to="/contact" className="btn btn-primary" id="achievements-cta-btn">Get Free Consultation <FiArrowRight /></Link>
               <a href="https://wa.me/923001234567" target="_blank" rel="noreferrer" className="btn wa-btn">

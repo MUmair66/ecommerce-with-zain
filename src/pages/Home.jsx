@@ -118,7 +118,7 @@ export default function Home() {
           </motion.div>
 
           <motion.div className="hero-stats" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.9 }}>
-            {[['500+', 'Happy Clients'], ['1000+', 'Accounts Created'], ['5+', 'Years Experience'], ['50+', 'eBay Cases Won']].map(([num, lbl]) => (
+            {[['750+', 'Happy Clients'], ['1500+', 'Accounts Created'], ['5+', 'Years Experience'], ['75+', 'eBay Cases Won']].map(([num, lbl]) => (
               <div className="hero-stat" key={lbl}>
                 <span className="hs-num">{num}</span>
                 <span className="hs-lbl">{lbl}</span>
@@ -339,7 +339,7 @@ export default function Home() {
           <FadeUp>
             <span className="badge light">Take Action</span>
             <h2 className="cta-heading">Ready to Scale Your E-Commerce Business?</h2>
-            <p className="cta-sub">Join 500+ satisfied clients who trust E-Commerce with Zain. Let's build your success story together.</p>
+            <p className="cta-sub">Join 750+ satisfied clients who trust E-Commerce with Zain. Let's build your success story together.</p>
             <div className="cta-btns">
               <Link to="/contact" className="btn btn-primary" id="cta-consult-btn">Get Free Consultation <FiArrowRight /></Link>
               <a href="https://wa.me/923054445888" target="_blank" rel="noreferrer" className="btn wa-btn" id="cta-whatsapp-btn">
