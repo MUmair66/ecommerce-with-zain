@@ -2,7 +2,7 @@ export const servicesData = [
   {
     id: 'ltd-llc',
     icon: '01',
-    image: '/images/ltd-llc.png',
+    image: 'https://images.unsplash.com/photo-1450101499163-c8848c66cb85?auto=format&fit=crop&w=800&q=80',
     title: 'LTD & LLC Formation',
     subtitle: 'UK & USA Company Registration',
     color: '#111111',
@@ -121,7 +121,7 @@ export const servicesData = [
     id: 'reinstatement',
     icon: '04',
     image: '/images/reinstatement.png',
-    title: 'Account Reinstatement',
+    title: 'Ebay Account Reinstatement',
     subtitle: 'Amazon & eBay Appeal Support',
     color: '#FFC107',
     desc: 'Recover selling privileges with structured case analysis, appeal preparation, and policy-focused documentation. We help identify the root issue and prepare a professional path toward account recovery.',
@@ -167,8 +167,8 @@ export const servicesData = [
   {
     id: 'ip-compliance',
     icon: '05',
-    image: '/images/ip-compliance.png',
-    title: 'IP Complaint & Compliance Services',
+    image: 'https://images.unsplash.com/photo-1542744094-24638eff58bb?auto=format&fit=crop&w=800&q=80',
+    title: 'Amazon Account Reinstatement',
     subtitle: 'Seller Health & Policy Resolution',
     color: '#222222',
     desc: 'Protect your account health by resolving compliance warnings, listing interruptions, and marketplace policy issues before they become larger business risks.',
@@ -235,7 +235,7 @@ export const servicesData = [
   {
     id: 'digital-marketing',
     icon: '07',
-    image: '/images/digital-marketing.png',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
     title: 'Digital Marketing',
     subtitle: 'Traffic, SEO & Campaign Growth',
     color: '#FFC107',

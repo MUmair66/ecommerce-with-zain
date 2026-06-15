@@ -118,7 +118,7 @@ export default function Home() {
           </motion.div>
 
           <motion.div className="hero-stats" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.9 }}>
-            {[['750+', 'Happy Clients'], ['1500+', 'Accounts Created'], ['5+', 'Years Experience'], ['75+', 'eBay Cases Won']].map(([num, lbl]) => (
+            {[['7+', 'Years Experience'], ['5000+', 'Accounts Created'], ['363', 'eBay Account Reinstated'], ['1850+', 'Happy Customer'], ['1000+', 'Amazon Account Reinstated']].map(([num, lbl]) => (
               <div className="hero-stat" key={lbl}>
                 <span className="hs-num">{num}</span>
                 <span className="hs-lbl">{lbl}</span>

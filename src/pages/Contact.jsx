@@ -249,7 +249,7 @@ export default function Contact() {
             <div style={{ borderRadius: 'var(--radius)', overflow: 'hidden', border: '1px solid var(--border)', boxShadow: 'var(--shadow)', height: '450px' }}>
               <iframe
                 title="Office Location Map"
-                src="https://maps.google.com/maps?q=Al%20Latif%20Center%20Lahore&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                src="https://maps.google.com/maps?q=Ecommerce+With+Zain,+Lahore&t=&z=16&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

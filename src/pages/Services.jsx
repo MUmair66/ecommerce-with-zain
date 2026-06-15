@@ -125,7 +125,6 @@ export default function Services() {
                 </div>
                 <div className="sdc-content">
                   <div className="sdc-heading-row">
-                    <span className="sdc-index" style={{ borderColor: svc.color, color: svc.color }}>{svc.icon}</span>
                     <div>
                       <span className="sdc-badge" style={{ background: `${svc.color}18`, color: svc.color }}>{svc.subtitle}</span>
                       <h2 className="sdc-title">{svc.title}</h2>

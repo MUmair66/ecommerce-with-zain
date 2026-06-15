@@ -76,7 +76,7 @@ export default function ServiceDetail() {
         <div className="container">
           <div className="sdh-content">
             <FadeUp>
-              <span className="badge light sdh-badge">{service.icon} — Premium Service</span>
+              <span className="badge light sdh-badge">Premium Service</span>
               <h1 className="page-hero-title">{service.title}</h1>
               <p className="page-hero-sub">{service.heroDesc || service.desc}</p>
               <div className="sdh-actions">

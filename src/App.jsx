@@ -63,6 +63,20 @@ export default function App() {
     return () => clearTimeout(t)
   }, [])
 
+  useEffect(() => {
+    let originalTitle = document.title;
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        originalTitle = document.title;
+        document.title = "Come Back 😢";
+      } else {
+        document.title = originalTitle;
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => document.removeEventListener("visibilitychange", handleVisibilityChange);
+  }, []);
+
   if (loading) return <LoadingScreen />
 
   return (
