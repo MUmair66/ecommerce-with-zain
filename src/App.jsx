@@ -68,7 +68,7 @@ export default function App() {
     const handleVisibilityChange = () => {
       if (document.hidden) {
         originalTitle = document.title;
-        document.title = "Come Back 😢";
+        document.title = "Come Back ⚡";
       } else {
         document.title = originalTitle;
       }

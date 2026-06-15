@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Logo from './Logo'
 import { FiMail, FiPhone } from 'react-icons/fi'
-import { FaWhatsapp, FaFacebook, FaInstagram, FaYoutube, FaTiktok } from 'react-icons/fa'
+import { FaWhatsapp, FaFacebook, FaInstagram, FaTiktok } from 'react-icons/fa'
 import './Footer.css'
 
 const quickLinks = [
@@ -32,11 +32,9 @@ export default function Footer() {
             From account creation to full management, we&apos;ve got you covered.
           </p>
           <div className="social-icons">
-            <a href="https://wa.me/923054445888" target="_blank" rel="noreferrer" aria-label="WhatsApp"><FaWhatsapp /></a>
-            <a href="#" target="_blank" rel="noreferrer" aria-label="Facebook"><FaFacebook /></a>
-            <a href="#" target="_blank" rel="noreferrer" aria-label="Instagram"><FaInstagram /></a>
-            <a href="#" target="_blank" rel="noreferrer" aria-label="YouTube"><FaYoutube /></a>
-            <a href="#" target="_blank" rel="noreferrer" aria-label="TikTok"><FaTiktok /></a>
+            <a href="https://www.facebook.com/ecommercewithzainofficial/" target="_blank" rel="noreferrer" aria-label="Facebook"><FaFacebook /></a>
+            <a href="https://www.instagram.com/ecommerce.with.zain/" target="_blank" rel="noreferrer" aria-label="Instagram"><FaInstagram /></a>
+            <a href="https://www.tiktok.com/@ecommercewithzainoficial?_r=1&_t=ZS-97EaTHHtpif" target="_blank" rel="noreferrer" aria-label="TikTok"><FaTiktok /></a>
           </div>
         </div>
 
@@ -79,7 +77,7 @@ export default function Footer() {
 
       <div className="footer-bottom">
         <div className="container footer-bottom-inner">
-          <p>© 2025 E-Commerce with Zain. All Rights Reserved.</p>
+          <p>© 2026 E-Commerce with Zain. All Rights Reserved.</p>
           <p>Designed for E-Commerce Excellence</p>
         </div>
       </div>

@@ -73,7 +73,7 @@ export default function ServiceDetail() {
 
       {/* Hero Section */}
       <section className="page-hero section-navy service-detail-hero">
-        <div className="container">
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="sdh-content">
             <FadeUp>
               <span className="badge light sdh-badge">Premium Service</span>
@@ -201,13 +201,13 @@ export default function ServiceDetail() {
 
       {/* Bottom CTA */}
       <section className="cta-banner">
-        <div className="container text-center">
+        <div className="container text-center" style={{ position: 'relative', zIndex: 1 }}>
           <FadeUp>
             <h2 className="cta-heading">Ready to scale your business?</h2>
             <p className="cta-sub">Get in touch with us today to start your journey.</p>
             <div className="cta-btns">
               <Link to="/contact" className="btn btn-primary">Start Now <FiArrowRight /></Link>
-              <a href="https://wa.me/923054445888" className="btn btn-outline wa-btn"><FaWhatsapp /> WhatsApp Us</a>
+              <a href="https://wa.me/923054445888" target="_blank" rel="noreferrer" className="btn btn-outline wa-btn"><FaWhatsapp /> WhatsApp Us</a>
             </div>
           </FadeUp>
         </div>
